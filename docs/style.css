@@ -1,0 +1,9 @@
+.blanket {
+    display: grid;
+    grid-template-columns: repeat(28, 1fr)
+  }
+  
+  .day {
+    height: 80px;
+    width: 80px;
+  }
