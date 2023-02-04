@@ -1,9 +1,12 @@
 const toggleEl = document.querySelector("#toggle");
 
-toggleEl.addEventListener("click", () => {
+toggleEl.addEventListener("click", (e) => {
     const blanketEl = document.querySelector(".blanket");
-    // use return value to decide if what button text should be set
+    // also use return value to decide what the button text should be set to
     if (blanketEl.classList.toggle("hidden-text") === true) {
-        // 
-    }        
+        e.target.textContent = "Show dates";
+    }
+    else {
+        e.target.textContent = "Hide dates";
+    } 
 });

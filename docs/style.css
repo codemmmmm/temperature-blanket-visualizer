@@ -1,14 +1,20 @@
 .blanket {
     display: grid;
-    grid-template-columns: repeat(28, 1fr)
-  }
-  
-  .day {
-    height: 80px;
-    width: 80px;
-    color: inherit;
-  }
+    grid-template-columns: repeat(28, 1fr);
+    margin-left: 6px;
+}
 
-  .hidden-text {
-    font-size: 0;
-  }
+.day {
+height: 80px;
+width: 80px;
+color: inherit;
+}
+
+.hidden-text {
+font-size: 0;
+}
+
+#toggle {
+    margin: 20px;
+}
+
