@@ -6,4 +6,9 @@
   .day {
     height: 80px;
     width: 80px;
+    color: inherit;
+  }
+
+  .hidden-text {
+    font-size: 0;
   }
