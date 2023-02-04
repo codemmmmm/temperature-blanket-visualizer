@@ -2,12 +2,15 @@
     display: grid;
     grid-template-columns: repeat(28, 1fr);
     margin-left: 6px;
+    border-style: inset;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 80px;
 }
 
 .day {
 height: 80px;
 width: 80px;
-color: inherit;
 }
 
 .hidden-text {
