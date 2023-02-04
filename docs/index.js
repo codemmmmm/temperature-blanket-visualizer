@@ -72,12 +72,15 @@ function colorDays() {
         },
         color: "#970f13"
     }];
+    // decide if the day's max or min temp should be used
+    const blanket = document.querySelector(".blanket");
+    const useMaxTemp = blanket.dataset.use === "max" ? true : false;
     
     const days = document.querySelectorAll(".day");
     days.forEach((day) => {
         const result = colorMap.find((colorEntry) => {
-            // TODO: decide if max or min is used
-            return parseInt(day.dataset.max, 10) >= colorEntry.range.low && parseInt(day.dataset.max, 10) <= colorEntry.range.high;
+            const dayTemp = useMaxTemp === true ? day.dataset.max : day.dataset.min;            
+            return parseInt(dayTemp, 10) >= colorEntry.range.low && parseInt(dayTemp, 10) <= colorEntry.range.high;
         })
 
         if (result !== undefined) {
@@ -88,9 +91,9 @@ function colorDays() {
     })
 }
 
-const toggleEl = document.querySelector("#toggle");
+const toggleDatesEl = document.querySelector("#toggle-dates");
 
-toggleEl.addEventListener("click", (e) => {
+toggleDatesEl.addEventListener("click", (e) => {
     const blanketEl = document.querySelector(".blanket");
     // also use return value to decide what the button text should be set to
     if (blanketEl.classList.toggle("hidden-text") === true) {
@@ -100,6 +103,17 @@ toggleEl.addEventListener("click", (e) => {
     } 
 });
 
+const toggleTempsEl = document.querySelector("#toggle-minmax");
+toggleTempsEl.addEventListener("click", (e) => {
+    const blanketEl = document.querySelector(".blanket");
+    if (blanketEl.dataset.use === "max") {
+        blanketEl.dataset.use = "min";
+        e.target.textContent = "Use maximum temperatures";
+    } else {
+        blanketEl.dataset.use = "max";
+        e.target.textContent = "Use minimum temperatures";
+    }
+    colorDays();
+})
+
 colorDays();
-
-
